@@ -1,0 +1,39 @@
+<%- include('../../layouts/header'); %>
+<h1>Tambah Dokter</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/doctors" method="POST" class="form">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" class="form-control" name="name" placeholder="Nama">
+            </div>
+            <div class="form-group">
+                <label for="">Jenis Kelamin</label> <br>
+                <input type="radio" name="gender" id="" value="Laki - Laki" checked>
+                <label>Laki - Laki</label><br>
+                <input type="radio" name="gender" id="" value="Perempuan">
+                <label>Perempuan</label><br>
+            </div>
+            <div class="form-group">
+                <label for="name">Alamat</label>
+                <input type="text" class="form-control" name="address" placeholder="Alamat">
+            </div>
+            <div class="form-group">
+                <label for="name">Layanan</label>
+                <select name="serviceId" class="form-control">
+                    <% if(services.length) { %>
+                        <% services.forEach((service) => { %>
+                            <option value="<%= service.id %>"><%= service.name %></option>
+                        <% }) %>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary"> Simpan </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../../layouts/footer'); %>

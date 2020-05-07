@@ -1,0 +1,45 @@
+<%- include('../../layouts/header'); %>
+<div class="row">
+    <a href="/doctors/create" class="btn btn-primary">Tambah Dokter</a>
+</div>
+
+<div class="row mt-2">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>No</th>
+                <th>Nama</th>
+                <th>Jenis Kelamin</th>
+                <th>Alamat</th>
+                <th>Layanan</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let no = 1; %>
+            <% if(doctors.length) { %>
+                <% doctors.forEach((doctor) => { %>
+                <tr>
+                    <td><%= no++ %> </td>
+                    <td><%= doctor.name %> </td>
+                    <td><%= doctor.gender %> </td>
+                    <td><%= doctor.address %> </td>
+                    <td><%= doctor.service.name %> </td>
+                    <td class="text-center">
+                        <a href="/doctors/<%= doctor.id %>/edit" class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/doctors/<%= doctor.id %>/delete" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+            <% } %>
+        </tbody>
+
+    </table>
+</div>
+
+
+<%- include('../../layouts/footer'); %>

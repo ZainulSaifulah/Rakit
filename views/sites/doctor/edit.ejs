@@ -1,0 +1,39 @@
+<%- include('../../layouts/header'); %>
+<h1>Ubah Dokter</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/doctors/<%= doctor.id %>/edit" method="POST" class="form">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" class="form-control" name="name" placeholder="Nama" value="<%= doctor.name %>">
+            </div>
+            <div class="form-group">
+                <label for="">Jenis Kelamin</label> <br>
+                <input type="radio" name="gender" id="" value="Laki - Laki" <%= doctor.gender == "Laki - Laki" ? "checked" : "" %>>
+                <label>Laki - Laki</label><br>
+                <input type="radio" name="gender" id="" value="Perempuan" <%= doctor.gender == "Perempuan" ? "checked" : "" %>>
+                <label>Perempuan</label><br>
+            </div>
+            <div class="form-group">
+                <label for="name">Alamat</label>
+                <input type="text" class="form-control" name="address" placeholder="Alamat" value="<%= doctor.address %>">
+            </div>
+            <div class="form-group">
+                <label for="name">Layanan</label>
+                <select name="serviceId" class="form-control">
+                    <% if(services.length) { %>
+                        <% services.forEach((service) => { %>
+                            <option value="<%= service.id %>"<%= doctor.service.id == service.id ? "selected" : "" %>><%= service.name %></option>
+                        <% }) %>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary"> Ubah </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../../layouts/footer'); %>

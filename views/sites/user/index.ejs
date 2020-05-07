@@ -1,0 +1,43 @@
+<%- include('../../layouts/header'); %>
+<div class="row">
+    <a href="/users/create" class="btn btn-primary">Tambah Pengguna</a>
+</div>
+
+<div class="row mt-2">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>No</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let no = 1; %>
+            <% if(users.length) { %>
+                <% users.forEach((user) => { %>
+                <tr>
+                    <td><%= no++ %> </td>
+                    <td><%= user.name %> </td>
+                    <td><%= user.username %> </td>
+                    <td><%= user.email %> </td>
+                    <td class="text-center">
+                        <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/users/<%= user.id %>/delete" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+            <% } %>
+        </tbody>
+
+    </table>
+</div>
+
+
+<%- include('../../layouts/footer'); %>

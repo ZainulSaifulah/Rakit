@@ -1,0 +1,29 @@
+<%- include('../layouts/header'); %>
+    <div class="row">
+        <div class="col-4">
+            <div class="card card-primary bg-warning-gradient">
+                <div class="card-body">
+                    <h1>Layanan</h1>
+                    <h1 class="text-right"><%= services.count %></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card card-primary bg-secondary-gradient">
+                <div class="card-body">
+                    <h1>Dokter</h1>
+                    <h1 class="text-right"><%= doctors.count %></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card card-primary bg-primary-gradient">
+                <div class="card-body">
+                    <h1>Pengguna</h1>
+                    <h1 class="text-right"><%= users.count %></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('../layouts/footer'); %>
